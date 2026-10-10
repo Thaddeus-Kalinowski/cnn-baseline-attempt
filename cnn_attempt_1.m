@@ -1,7 +1,7 @@
 % Dataset: 
 % https://huggingface.co/datasets/kostaspic/amfitrite-open-waters-hab-sentinel2
 
-filepath = "C:\Users\thad5\Documents\MATLAB\amfitrite-open-waters-hab-sentinel2\data\1816_nonHAB"
+filepath = ".\1816_nonHAB"
 
 t1  = imread(fullfile(filepath,"B01_raw.tif"));
 t2  = imread(fullfile(filepath,"B02_raw.tif"));
