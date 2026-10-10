@@ -24,9 +24,12 @@ combinedImages = cat(3,t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12);
 
 % Bands' central wavelengths taken from this Sentinel 2 article
 % https://gisgeography.com/sentinel-2-bands-combinations/
+
+% Making a multispectral imagery cube out of 12 2D images
 mcube = immulticube(combinedImages,[443,490,560,665,705,740,783,842,865, ...
    940,1610,2190]);
 
+% Colorize the multispectral cube and show the image to the user
 img = colorize(mcube);
 imageshow(img);
 
