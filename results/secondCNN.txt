@@ -1,0 +1,29 @@
+layers = [
+    imageInputLayer([256 256 3])
+
+    convolution2dLayer(4,8,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    maxPooling2dLayer(3,Stride=2)
+
+    convolution2dLayer(3,16,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    maxPooling2dLayer(3,Stride=2)
+
+    convolution2dLayer(4,32,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    fullyConnectedLayer(2)
+    softmaxLayer
+];
+
+1445 files from the nonHAB section and the HAB section each.
+nonHAB folder included cloud and land images.
+
+options = trainingOptions("sgdm", InitialLearnRate=0.001, MaxEpochs=10, Shuffle="every-epoch", ...
+    Plots="training-progress", Metrics="accuracy", ...
+    ValidationData=imdsValidation, ValidationFrequency=10);
