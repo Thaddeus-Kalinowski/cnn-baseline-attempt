@@ -1,0 +1,3 @@
+first convolutional layers amount changed to 40
+2nd con. layers amount changed to 30
+3rd layers amount changed to 20

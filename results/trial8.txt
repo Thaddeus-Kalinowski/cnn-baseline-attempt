@@ -1,0 +1,7 @@
+first convolution 2d layer changed to 8x8 size
+
+first maxPooling 2d layer changed to 4x4 size
+
+first convolutional layers amount changed to 15
+2nd con. layers amount changed to 30
+3rd layers amount changed to 60

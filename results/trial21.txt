@@ -1,0 +1,33 @@
+Use raw tif images, instead of combining 12 bands/spectrums into 1 image.
+Dataset size increased from 2900 to probably 29000. maybe, idk.
+
+Had to change layers from [256 256 3] to [256 256 1]
+Also trained for 1 epoch with validation frequency set to 5.
+
+
+
+layers = [
+    imageInputLayer([256 256 1])
+
+    convolution2dLayer(3,5,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(3,Stride=2)
+
+    convolution2dLayer(4,6,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(3,Stride=2)
+
+    convolution2dLayer(4,7,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    fullyConnectedLayer(2)
+    sigmoidLayer
+];
+
+imds = imageDatastore("C:\Users\thad5\Documents\MATLAB\rearranged_data\data", ... 
+    IncludeSubfolders=true, LabelSource="foldernames", FileExtensions=".tif");

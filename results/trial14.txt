@@ -1,0 +1,7 @@
+validation frequency set to 3
+
+randrotation augment changed from [-360,360] to [0,360]
+
+changed rand X and Y translations to +-10 (from +-3)
+
+solver changed from sgdm to adam

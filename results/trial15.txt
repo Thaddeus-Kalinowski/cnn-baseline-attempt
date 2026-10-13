@@ -1,0 +1,30 @@
+switch back to sgdm trainer
+
+change all pooling layers from max to average
+
+layers = [
+    imageInputLayer([256 256 3])
+
+    convolution2dLayer(8,30,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(4,Stride=2)
+
+    convolution2dLayer(4,20,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(3,Stride=2)
+
+    convolution2dLayer(4,15,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    fullyConnectedLayer(2)
+    softmaxLayer
+];
+
+options = trainingOptions("sgdm", InitialLearnRate=0.001, MaxEpochs=30, Shuffle="every-epoch", ...
+    Plots="training-progress", Metrics="accuracy", ...
+    ValidationData=imdsValidation, ValidationFrequency=5);

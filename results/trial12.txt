@@ -1,0 +1,1 @@
+conv. layer 1/2/3 all set to 40 neurons

@@ -1,0 +1,30 @@
+Remove augmented dataset, i don't think it's helping.
+
+layers = [
+    imageInputLayer([256 256 3])
+
+    convolution2dLayer(8,30,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(4,Stride=2)
+
+    convolution2dLayer(4,20,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(3,Stride=2)
+
+    convolution2dLayer(4,15,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    fullyConnectedLayer(2)
+    sigmoidLayer
+];
+
+[imdsTrain, imdsValidation, imdsTest] = splitEachLabel(imds, 0.6,0.35,0.05);
+
+options = trainingOptions("sgdm", InitialLearnRate=0.001, MaxEpochs=30, Shuffle="every-epoch", ...
+    Plots="training-progress", Metrics="accuracy", ...
+    ValidationData=imdsValidation, ValidationFrequency=5);

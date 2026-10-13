@@ -1,0 +1,5 @@
+change conv. layer 1 amount to 30
+change conv layer 2 amount to 20
+change conv layer 3 amount to 15
+
+do 30 epochs

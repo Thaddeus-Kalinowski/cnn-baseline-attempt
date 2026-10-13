@@ -1,0 +1,33 @@
+Network is clearly overfitting, so let's make it smaller.
+1st conv layer amount set to 8
+2nd conv layer amount set to 12
+3rd conv layer amount set to 18
+
+layers = [
+    imageInputLayer([256 256 3])
+
+    convolution2dLayer(8,8,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(4,Stride=2)
+
+    convolution2dLayer(4,12,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(3,Stride=2)
+
+    convolution2dLayer(4,18,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    fullyConnectedLayer(2)
+    sigmoidLayer
+];
+
+[imdsTrain, imdsValidation] = splitEachLabel(imds, 0.6, 0.4);
+
+options = trainingOptions("sgdm", InitialLearnRate=0.001, MaxEpochs=30, Shuffle="every-epoch", ...
+    Plots="training-progress", Metrics="accuracy", ...
+    ValidationData=imdsValidation, ValidationFrequency=5);

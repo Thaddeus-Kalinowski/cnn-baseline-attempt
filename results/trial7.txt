@@ -1,0 +1,3 @@
+change first convolutional layer to 50x50
+
+change first maxPooling2dlayer to 16x16
