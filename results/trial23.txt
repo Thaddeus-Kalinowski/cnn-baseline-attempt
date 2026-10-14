@@ -1,0 +1,27 @@
+Scale network back up.
+1st conv layer amount: 10
+2nd amount: 20
+3rd: 30
+
+layers = [
+    imageInputLayer([256 256 1])
+
+    convolution2dLayer(3,10,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(3,Stride=2)
+
+    convolution2dLayer(4,20,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    averagePooling2dLayer(3,Stride=2)
+
+    convolution2dLayer(4,30,Padding="same")
+    batchNormalizationLayer
+    reluLayer
+
+    fullyConnectedLayer(2)
+    sigmoidLayer
+];
